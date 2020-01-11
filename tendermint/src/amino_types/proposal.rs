@@ -195,7 +195,6 @@ mod tests {
     use crate::amino_types::block_id::PartsSetHeader;
     use chrono::{DateTime, Utc};
     use prost::Message;
-    use std::error::Error;
 
     #[test]
     fn test_serialization() {
@@ -294,7 +293,7 @@ mod tests {
 
         match SignProposalRequest::decode(&data) {
             Ok(have) => assert_eq!(have, want),
-            Err(err) => panic!(err.description().to_string()),
+            Err(err) => panic!(err.to_string()),
         }
     }
 }
